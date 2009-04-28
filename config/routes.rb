@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.namespace :admin do |admin|
+    admin.resources :posts
+  end
+  map.resources :posts
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
