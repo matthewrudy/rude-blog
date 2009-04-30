@@ -1,8 +1,10 @@
 <div class="post">
-  <div class="permalink">
+  <div class="date">
+    <%= link_to(post.created_at.to_date.inspect, post) %>
   </div>
   <div class="regular">
     <h1><%= link_to(h(post.title), post) %></h1>
     <%=simple_format(post.body) %>
   </div>
+
 </div>
