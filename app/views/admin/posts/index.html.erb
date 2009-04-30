@@ -10,7 +10,7 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%=h post.title %></td>
-    <td><%=h post.body %></td>
+    <td><%=h truncate(strip_tags(post.body), :length => 100) %></td>
     <td><%=h post.legacy_id %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_admin_post_path(post) %></td>
