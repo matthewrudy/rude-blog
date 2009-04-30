@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>Ma Tai zai Zhong Guo - <%= @post ? @post.title : "when China met Matthew Rudy" %></title>        
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://china.matthewrudy.com/rss"/>
+        <link rel="alternate" type="application/atom+xml" title="ATOM" href="<%= url_for(:controller => "posts", :action => "index", :format => "atom") %>"/>
         <link rel="icon" href="http://assets.tumblr.com/images/default_avatar_16.gif"/>
 
         <!-- iPhone -->
