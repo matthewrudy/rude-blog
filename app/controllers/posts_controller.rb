@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  caches_page :index
+
   def index
     @posts = Post.find(:all, :order => "created_at DESC")
 

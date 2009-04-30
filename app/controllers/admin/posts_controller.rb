@@ -52,6 +52,8 @@ class Admin::PostsController < ApplicationController
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
+    expire_page "/posts/index"
+
   end
 
   # PUT /posts/1
