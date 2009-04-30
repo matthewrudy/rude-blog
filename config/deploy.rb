@@ -25,3 +25,7 @@ namespace :deploy do
     run "touch #{current_path}/tmp/restart.txt"
   end
 end
+
+task :after_update_code do
+  run "ln -fs #{shared_path}/production.sqlite3 #{release_path}/db/"
+end
