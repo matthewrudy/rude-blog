@@ -85,10 +85,16 @@ class Admin::PostsController < ApplicationController
 
   private
 
-  after_filter :expire_all_post_caches, :only => [:create, :update, :destroy]
+  after_filter :expire_index_page_caches, :only => [:create, :update, :destroy]
+  after_filter :expire_show_page_caches, :only => [:update, :destroy]
+  def expire_index_page_caches
+    ["/index.html", "/index.atom", "/posts.html", "/posts.atom"].each do |page_path|
+      expire_page page_path
+    end
+  end
 
-  def expire_all_post_caches
-    ["/index.html", "/index.atom", "/posts.html", "/posts.atom", "/posts/index.html", "/posts.index.atom"].each do |page_path|
+  def expire_show_page_caches
+    ["/posts/#{params[:id]}.html", "/post/#{params[:legacy_id]}"].each do |page_path|
       expire_page page_path
     end
   end
