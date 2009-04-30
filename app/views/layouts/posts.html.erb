@@ -7,13 +7,6 @@
         <link rel="alternate" type="application/atom+xml" title="ATOM" href="<%= url_for(:controller => "posts", :action => "index", :format => "atom") %>"/>
         <link rel="icon" href="http://assets.tumblr.com/images/default_avatar_16.gif"/>
 
-        <!-- iPhone -->
-        <meta name="viewport" content="width=860"/>
-        
-        <!-- DEFAULT COLORS -->
-        <meta name="color:Alternate Text" content="#bfad8a"/>
-        <!-- END DEFAULT COLORS -->        
-
         <style type="text/css">
             * {
 	            margin: 0;
@@ -28,19 +21,17 @@
 	            color: #949494;
 	            text-align: center;
 	        }
-
-            #outer-container { /* the banner and such */
-                    width : 1000px ;
-                    margin : 0 auto;
-                    text-align : left;
-                }
+            
             #container {
 	            width: 840px;
-	            margin: 0 auto;
+	            margin: 10px;
 	            text-align: left;
+                    position : absolute;
+                    left : 100px ;
 	        }
             #chinese-title {
-                    float: left;
+                    position : absolute ;
+                    left : 10px ;
                     font-size: 75px;
                     width: 80px;
                     color: white;
@@ -178,7 +169,7 @@
 	        }
 
             #header {
-	            padding: 40px 0 60px 0;
+	            padding: 40px 0 40px 0;
 	            position: relative;
 	        }
 
@@ -203,61 +194,6 @@
 								font: italic normal 1.2em/1.8 Georgia, serif;
 							}
 
-                #header ul {
-	                position: absolute;
-	                left: 550px;
-	                top: 40px;
-	            }
-
-                    #header ul li {
-    	                display: inline;
-    	            }
-
-												#header ul li form {
-													display: inline;
-												}
-												
-													#header ul li form #searchbox {
-														background: #000;
-														border: 1px solid #bfad8a;
-														opacity: 0.7;
-														color: #fff;
-													}
-													
-													#header ul li form #submitsearch {
-														display: none;
-													}
-
-                        #header ul li a {
-        	                font-family: georgia;
-        	                color: #ddd;
-        	                font-style: italic;
-        	                border-bottom: 1px dotted #999;
-        	                margin-right: 11px;
-        	            }
-
-                            #header ul li a:hover {
-	                            color: #fff;
-	                            border-bottom: 1px solid #fff;
-	                        }
-
-            #navigation, .meta {
-                text-align: center;
-                height: 350px;
-                float: left;
-                width: 270px;
-                background: url('/themes/11/shade.png');
-            }
-
-                #navigation a {
-                    border: 0;
-                    padding: 3px 8px;
-                    background: #222;
-                }
-
-                    #navigation a:hover {
-                        background: #333;
-                    }
 
                     .pages {
                         font-family: Georgia;
@@ -332,15 +268,13 @@
         <![endif]-->
     </head>
     <body id="perm">	
-       <div id="outer-container">
-
         <div id="chinese-title">马泰在中国</div>		
         <div id="container">     
-        	<div id="header">
+          <div id="header">
                 <h1><a href="/">Ma Tai zai Zhong Guo</a></h1>
 								<h2>when China met Matthew Rudy</h2>
-                  <%= yield %>
-        	</div>
+          </div>
+          <%= yield %>
         </div>
 
 <script type="text/javascript">
