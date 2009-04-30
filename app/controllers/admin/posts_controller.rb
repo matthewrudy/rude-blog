@@ -52,8 +52,6 @@ class Admin::PostsController < ApplicationController
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
-    expire_page "/posts/index"
-
   end
 
   # PUT /posts/1
@@ -82,6 +80,16 @@ class Admin::PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(admin_posts_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  private
+
+  after_filter :expire_all_post_caches, :only => [:create, :update, :destroy]
+
+  def expire_all_post_caches
+    ["/index.html", "/index.atom", "/posts.html", "/posts.atom", "/posts/index.html", "/posts.index.atom"].each do |page_path|
+      expire_page page_path
     end
   end
 end
