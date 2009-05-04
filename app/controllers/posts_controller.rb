@@ -12,11 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    if legacy_id = params[:legacy_id]
-      @post = Post.find_by_legacy_id!(legacy_id)
-    else
-      @post = Post.find(params[:id])
-    end
+    @post = Post.find(params[:id])
   end
 
 end
