@@ -88,7 +88,7 @@ class Admin::PostsController < ApplicationController
   after_filter :expire_index_page_caches, :only => [:create, :update, :destroy]
   after_filter :expire_show_page_caches, :only => [:update, :destroy]
   def expire_index_page_caches
-    ["/index.html", "/index.atom", "/posts.html", "/posts.atom"].each do |page_path|
+    ["/index.html", "/index.atom", "/posts.html", "/posts.atom", "/rss.html"].each do |page_path|
       expire_page page_path
     end
   end

@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.legacy  "post/:id/:some_description", :controller => "legacy", :action => "post"
   map.legacy2 "post/:id",                   :controller => "legacy", :action => "post"
-  map.legacyrss "rss", :controller => "legacy", :action => "rss"
+  map.legacyrss "rss", :controller => "posts", :action => "index", :format => "atom"
 
   # The priority is based upon order of creation: first created -> highest priority.
 
